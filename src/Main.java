@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -15,6 +14,33 @@ public class Main {
     static Integer wins = 0;
     static Integer losses = 0;
     static Integer playedNumber = 0;
+    static MouseListener bidAndNumberListener = new MouseListener() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            JTextField field = (JTextField) e.getSource();
+            field.setText("");
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    };
 
     public static void CreateWindow() {
 
@@ -35,64 +61,14 @@ public class Main {
         bidDisplay.setEditable(true);
         bidDisplay.setText("Write your bid here");
         bidDisplay.setBackground(Color.green);
-        bidDisplay.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                bidDisplay.setText("");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        bidDisplay.addMouseListener(bidAndNumberListener);
         frame.add(bidDisplay);
         numberDisplay = new JTextField();
         numberDisplay.setVisible(true);
         numberDisplay.setEditable(true);
         numberDisplay.setText("Write your number here");
         numberDisplay.setBackground(Color.green);
-        numberDisplay.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                numberDisplay.setText("");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        numberDisplay.addMouseListener(bidAndNumberListener);
         frame.add(numberDisplay);
         playedNumberDisplay = new JTextField();
         playedNumberDisplay.setVisible(true);
